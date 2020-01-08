@@ -59,7 +59,7 @@ Hamrobazaar do not endorse or promote any of the listings, or information posted
 You further understand that Hamrobazaar is not involved in transaction of any goods / services listed in the Site. You will be directly contacting users who have posted advertisement regarding their goods or services offering.
 
 If you are using information from Site, in order to communicate / sale / purchase any goods or services from other users, we strongly encourage you take necessary precaution to protect yourself. We recommend that you read our Safety Tips before doing any transaction with other users." />
-        
+
         <Button
             android:id="@+id/btnBackToTermsAndCondition"
             android:layout_width="200dp"
