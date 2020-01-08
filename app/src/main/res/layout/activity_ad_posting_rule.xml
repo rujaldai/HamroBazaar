@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdPostingRuleActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Terms of Use"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Acceptance Through Use"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="By posting or viewing a classified advertisement on the Site , you agree to be bound by all of the terms, conditions and notices contained or referenced in these Terms. If you do not accept all of the Terms, you are not authorized to post or view any Ads and shall discontinue using this Site immediately." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eligibility / Minimum Age"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hamrobazaar is not directed to, and is not authorized to post or view Ads, by anyone under the age of eighteen (18) and
+If you are using Hamrobazaar on behalf of a legal entity, you shall be responsible to obtain necessary authority to post or retrieve any information on the Site and you agree to be accountable for those information." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Understanding of Platform"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You agree and understand that Hamrobazaar is an internet classified platform that facilitates communication between users for the purpose of advertising and sharing information related to goods and/ or services.
+
+Hamrobazaar do not endorse or promote any of the listings, or information posted by users. These users (including You) are third parties and are not related to Hamrobazaar or its affiliates. You agree not to hold Hamrobazaar responsible for information posted by these users or for their act in any circumstances.
+
+You further understand that Hamrobazaar is not involved in transaction of any goods / services listed in the Site. You will be directly contacting users who have posted advertisement regarding their goods or services offering.
+
+If you are using information from Site, in order to communicate / sale / purchase any goods or services from other users, we strongly encourage you take necessary precaution to protect yourself. We recommend that you read our Safety Tips before doing any transaction with other users." />
+        
+        <Button
+            android:id="@+id/btnBackToTermsAndCondition"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="40dp"
+            android:background="#32baba"
+            android:text="Go back" />
+    </LinearLayout>
+
+</ScrollView>
