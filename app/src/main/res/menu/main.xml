@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:orderInCategory="100"
+        android:title="Settings"
+        app:showAsAction="never" />
+    <item
+        android:orderInCategory="100"
+        android:title="Help"
+        app:showAsAction="never" />
+    <item
+        android:orderInCategory="100"
+        android:title="Safety Tips"
+        app:showAsAction="never" />
+    <item
+        android:orderInCategory="100"
+        android:title="Posting Rules"
+        app:showAsAction="never" />
+    <item
+        android:orderInCategory="100"
+        android:title="Terms of Use"
+        app:showAsAction="never" />
+    <item
+        android:orderInCategory="100"
+        android:title="Contact Us"
+        app:showAsAction="never" />
+    <item
+        android:orderInCategory="100"
+        android:title="About"
+        app:showAsAction="never" />
+    <item
+        android:orderInCategory="100"
+        android:title="Share Hamrobazar App"
+        app:showAsAction="never" />
+
+
+</menu>

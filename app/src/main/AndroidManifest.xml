@@ -21,6 +21,7 @@
         <activity android:name=".TermsActivity" />
         <activity android:name=".SafetyTipsActivity" />
         <activity android:name=".AdPostingRuleActivity" />
+        <activity android:name=".RegisterActivity" />
     </application>
 
 </manifest>
