@@ -13,11 +13,11 @@ import retrofit2.http.Part;
 
 interface UserApi {
 
-    @POST("users/signup")
+    @POST("user/registration")
     Call<SignUpResponse> registerUser(@Body User user);
 
     @FormUrlEncoded
-    @POST("users/login")
+    @POST("user/login")
     Call<SignUpResponse> checkUser(@Field("username") String username, @Field("password") String password);
 
     @Multipart

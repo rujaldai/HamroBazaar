@@ -3,10 +3,10 @@ package com.rujal.hamrobazaar;
 class User {
 
     private String email;
-    private String fullName;
+    private String fullname;
     private String password;
     private String phone;
-    private String mobilePhone;
+    private String mobile;
     private String address1;
     private String address2;
     private String address3;
@@ -14,10 +14,10 @@ class User {
 
     public User(String email, String fullName, String password, String phone, String mobilephone, String address1, String address2, String address3, String image) {
         this.email = email;
-        this.fullName = fullName;
+        this.fullname = fullName;
         this.password = password;
         this.phone = phone;
-        this.mobilePhone = mobilephone;
+        this.mobile = mobilephone;
         this.address1 = address1;
         this.address2 = address2;
         this.address3 = address3;
@@ -32,12 +32,12 @@ class User {
         this.email = email;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public String getPassword() {
@@ -56,12 +56,12 @@ class User {
         this.phone = phone;
     }
 
-    public String getMobilePhone() {
-        return mobilePhone;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setMobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getAddress1() {
