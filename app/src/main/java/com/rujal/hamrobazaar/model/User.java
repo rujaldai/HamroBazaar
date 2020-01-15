@@ -1,6 +1,6 @@
-package com.rujal.hamrobazaar;
+package com.rujal.hamrobazaar.model;
 
-class User {
+public class User {
 
     private String email;
     private String fullname;

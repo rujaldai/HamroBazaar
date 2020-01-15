@@ -1,6 +1,6 @@
-package com.rujal.hamrobazaar;
+package com.rujal.hamrobazaar.model;
 
-class SignUpResponse {
+public class SignUpResponse<T> {
 
     private String status;
     private String token;

@@ -1,11 +1,12 @@
 package com.rujal.hamrobazaar;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,6 +15,12 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.content.CursorLoader;
+
+import com.rujal.hamrobazaar.api.UserApi;
+import com.rujal.hamrobazaar.model.ImageResponse;
+import com.rujal.hamrobazaar.model.SignUpResponse;
+import com.rujal.hamrobazaar.model.User;
+import com.rujal.hamrobazaar.url.Url;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,8 +52,8 @@ public class RegisterActivity extends AppCompatActivity {
         etPhone = findViewById(R.id.etPhone);
         etMobilePhone = findViewById(R.id.etMobile);
         etStreetName = findViewById(R.id.etStreetName);
-        etLocation = findViewById(R.id.etAddress2);
-        etAddress3 = findViewById(R.id.etAddress2);
+        etLocation = findViewById(R.id.etAreaLocation);
+        etAddress3 = findViewById(R.id.etAddress3);
         btnRegister = findViewById(R.id.btnRegister);
 
         profilePic.setOnClickListener(i -> browseImage());
@@ -75,20 +82,30 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void browseImage() {
+
+        int MY_READ_EXTERNAL_REQUEST = 1;
+        if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_READ_EXTERNAL_REQUEST);
+        }
+        if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_READ_EXTERNAL_REQUEST);
+        }
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         startActivityForResult(intent, 0);
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (resultCode == RESULT_OK) {
             if (data == null) {
                 Toast.makeText(this, "Please select an image ", Toast.LENGTH_SHORT).show();
             }
             Uri uri = data.getData();
-            profilePic.setImageURI(uri);
+            profilePic.setImageURI(data.getData());
             imagePath = getRealPathFromUri(uri);
 
         }
@@ -119,7 +136,7 @@ public class RegisterActivity extends AppCompatActivity {
         CustomStrictMode.strictMode();
         try {
             Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
-            imageName = imageResponseResponse.body().getFilename();
+            imageName = imageResponseResponse.body().getPath();
             Toast.makeText(this, "Image inserted" + imageName, Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             Toast.makeText(this, "Error" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
@@ -145,10 +162,10 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
                 if (!response.isSuccessful()) {
-                    Toast.makeText(RegisterActivity.this, "Code" + response.code(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Error: " + response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Toast.makeText(RegisterActivity.this, "Register sucessfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Registered sucessfully", Toast.LENGTH_SHORT).show();
             }
 
             @Override

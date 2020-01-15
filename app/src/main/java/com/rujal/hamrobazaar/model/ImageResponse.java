@@ -1,4 +1,4 @@
-package com.rujal.hamrobazaar;
+package com.rujal.hamrobazaar.model;
 
 public class ImageResponse {
 

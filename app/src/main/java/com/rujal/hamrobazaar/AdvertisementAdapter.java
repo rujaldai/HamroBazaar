@@ -33,7 +33,7 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
     @Override
     public void onBindViewHolder(@NonNull AdvertisementViewHolder holder, int position) {
         Advertisement advertisement = advertisements.get(position);
-        holder.imageAd.setImageResource(advertisement.getImageId());
+        holder.imageAd.setImageResource(Integer.valueOf(advertisement.getImageId()));
         holder.tvProductType.setText(advertisement.getProductType());
         holder.tvAdName.setText(advertisement.getName());
         holder.tvAdPrice.setText(advertisement.getPrice());

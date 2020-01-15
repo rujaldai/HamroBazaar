@@ -1,4 +1,8 @@
-package com.rujal.hamrobazaar;
+package com.rujal.hamrobazaar.api;
+
+import com.rujal.hamrobazaar.model.ImageResponse;
+import com.rujal.hamrobazaar.model.SignUpResponse;
+import com.rujal.hamrobazaar.model.User;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
@@ -11,7 +15,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 
-interface UserApi {
+public interface UserApi {
 
     @POST("user/registration")
     Call<SignUpResponse> registerUser(@Body User user);

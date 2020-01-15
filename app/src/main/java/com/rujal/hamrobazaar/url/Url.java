@@ -1,9 +1,9 @@
-package com.rujal.hamrobazaar;
+package com.rujal.hamrobazaar.url;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-class Url {
+public class Url {
     public static final String BASE_URL = "http://192.168.1.155:3000/api/";
     public static String token = "Bearer ";
 

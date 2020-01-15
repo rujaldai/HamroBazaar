@@ -4,14 +4,24 @@ public class Advertisement {
 
     private String name;
     private String price;
-    private int imageId;
+    private String imageId;
     private String productType;
+    private String type;
 
-    public Advertisement(String name, String price, int imageId, String productType) {
+    public Advertisement(String name, String price, String imageId, String productType, String type) {
         this.name = name;
         this.price = price;
         this.imageId = imageId;
         this.productType = productType;
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getName() {
@@ -30,11 +40,11 @@ public class Advertisement {
         this.price = price;
     }
 
-    public int getImageId() {
+    public String getImageId() {
         return imageId;
     }
 
-    public void setImageId(int imageId) {
+    public void setImageId(String imageId) {
         this.imageId = imageId;
     }
 
@@ -44,6 +54,11 @@ public class Advertisement {
 
     public void setProductType(String productType) {
         this.productType = productType;
+    }
+
+    @Override
+    public String toString(){
+        return this.getName();
     }
 
 }
