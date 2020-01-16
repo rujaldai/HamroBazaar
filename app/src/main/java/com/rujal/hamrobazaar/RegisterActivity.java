@@ -68,6 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 } else {
                     Toast.makeText(RegisterActivity.this, "Password do not match", Toast.LENGTH_SHORT).show();
+                    etPassword.setError("Password do not match");
                     etPassword.requestFocus();
                     return;
                 }
@@ -75,20 +76,28 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean validate() {
-        tvRegisterError.setError("");
+        tvRegisterError.setText("");
         if (etEmail.getText().toString().isEmpty() || etFullName.getText().toString().isEmpty()  ) {
             tvRegisterError.setText("Please input all fields");
+            etEmail.requestFocus();
             return false;
         } else if (etMobilePhone.getText().toString().length() != 10  ) {
             etMobilePhone.setError("10 numbers required");
+            tvRegisterError.setText("10 numbers required for mobile number");
+            etMobilePhone.requestFocus();
             return false;
         } else if (etPhone.getText().toString().length() != 7) {
             etPhone.setError("7 numbers required");
+            tvRegisterError.setText("7 numbers required for phone number");
+            etPhone.requestFocus();
             return false;
         } else if (etPassword.getText().toString().length() < 6) {
-            etPassword.setError("8 characters required");
+            etPassword.setError("6 characters required");
+            tvRegisterError.setText("min 6 characters required for password");
+            etPassword.requestFocus();
             return false;
         }
+        tvRegisterError.setText("");
         return true;
     }
 
