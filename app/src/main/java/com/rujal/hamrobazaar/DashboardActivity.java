@@ -143,14 +143,6 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        PopupMenu popupMenu = new PopupMenu(this, );
-//        MenuInflater menuInflater = getMenuInflater();
-//        menuInflater.inflate(R.menu.main, menu);
-//        return true;
-//    }
-
     public void setProfilePicture(String path) {
         File imgFile = new File(path);
 
