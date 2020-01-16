@@ -3,10 +3,10 @@ package com.rujal.hamrobazaar;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuInflater;
-import android.widget.EditText;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.ViewFlipper;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,9 +28,8 @@ import retrofit2.Response;
 
 public class DashboardActivity extends AppCompatActivity {
     private RecyclerView recyclerView, recyclerViewSecond;
-    private ImageView login;
+    private ImageView login, toolbarMenu;
     private ViewFlipper vFlipper;
-    private EditText etEmail, etPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +44,10 @@ public class DashboardActivity extends AppCompatActivity {
         recyclerViewSecond = findViewById(R.id.recyclerViewSecond);
 
         login = findViewById(R.id.login);
+        toolbarMenu = findViewById(R.id.toolBarMenu);
 
         login.setOnClickListener(i -> new LoginDialog().show(getSupportFragmentManager(), "Login"));
+        toolbarMenu.setOnClickListener(view -> showPopupMenu(view));
 
         CustomStrictMode.strictMode();
 
@@ -83,6 +84,13 @@ public class DashboardActivity extends AppCompatActivity {
         for (int image : images) {
             slideImages(image);
         }
+    }
+
+    private void showPopupMenu(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main, popupMenu.getMenu());
+        popupMenu.show();
     }
 
     private List<Advertisement> getAllAdvertisements() {
@@ -134,18 +142,25 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        PopupMenu popupMenu = new PopupMenu(this, );
+//        MenuInflater menuInflater = getMenuInflater();
+//        menuInflater.inflate(R.menu.main, menu);
+//        return true;
+//    }
 
     public void setProfilePicture(String path) {
         File imgFile = new File(path);
 
         System.out.println(imgFile.canRead());
         System.out.println(imgFile.getAbsolutePath());
+        try {
+            System.out.println(imgFile.getCanonicalPath());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
 
         if (imgFile.exists()) {
 

@@ -62,11 +62,9 @@ public class RegisterActivity extends AppCompatActivity {
         profilePic.setOnClickListener(i -> browseImage());
         btnRegister.setOnClickListener(i -> {
                 if (etPassword.getText().toString().equalsIgnoreCase(etRePassword.getText().toString())) {
-                    if (validate()) {
-                        if (imagePath != null) {
-                            saveImageOnly();
-                            signUp();
-                        }
+                    if (validate() && imagePath != null) {
+                        saveImageOnly();
+                        signUp();
                     }
                 } else {
                     Toast.makeText(RegisterActivity.this, "Password do not match", Toast.LENGTH_SHORT).show();
@@ -87,7 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (etPhone.getText().toString().length() != 7) {
             etPhone.setError("7 numbers required");
             return false;
-        } else if (etPassword.getText().toString().length() < 8) {
+        } else if (etPassword.getText().toString().length() < 6) {
             etPassword.setError("8 characters required");
             return false;
         }
