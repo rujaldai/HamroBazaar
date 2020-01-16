@@ -36,6 +36,8 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        CustomStrictMode.strictMode();
+
         if (getIntent().getStringExtra("imagePath") != null) {
             setProfilePicture(getIntent().getStringExtra("imagePath"));
         }
@@ -49,7 +51,6 @@ public class DashboardActivity extends AppCompatActivity {
         login.setOnClickListener(i -> new LoginDialog().show(getSupportFragmentManager(), "Login"));
         toolbarMenu.setOnClickListener(view -> showPopupMenu(view));
 
-        CustomStrictMode.strictMode();
 
         // add advertisements into database
         addAdvertisements();
@@ -170,6 +171,9 @@ public class DashboardActivity extends AppCompatActivity {
 
             myImage.setImageBitmap(myBitmap);
 
+        } else {
+            ImageView myImage = findViewById(R.id.login);
+            myImage.setBackgroundResource(R.drawable.pets);
         }
     }
 
