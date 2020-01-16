@@ -31,7 +31,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/etEmail"
+            android:id="@+id/etEmailRegister"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:hint="Enter Email" />
+            android:hint="Enter Full name" />
 
         <TextView
             android:layout_width="350dp"
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:hint="Enter Email"
+            android:hint="Enter Password"
             android:inputType="textPassword" />
 
         <TextView
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:hint="Enter Email"
+            android:hint="Confirm Password"
             android:inputType="textPassword" />
 
         <TextView
@@ -245,6 +245,12 @@
             android:text="Hide my phone number (only contact me through email)"
             android:textColor="@color/colorAccent"
             android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tvRegisterError" />
 
         <Button
             android:id="@+id/btnRegister"

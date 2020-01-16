@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -34,6 +35,7 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText etEmail, etFullName, etPassword, etRePassword, etPhone, etMobilePhone, etStreetName, etLocation, etAddress3;
+    private TextView tvRegisterError;
     private Button btnRegister;
     private ImageView profilePic;
     private String imagePath;
@@ -45,7 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         profilePic = findViewById(R.id.profilePic);
-        etEmail = findViewById(R.id.etEmail);
+        etEmail = findViewById(R.id.etEmailRegister);
         etPassword = findViewById(R.id.etPasswordRegister);
         etFullName = findViewById(R.id.etFullName);
         etRePassword = findViewById(R.id.etRePassword);
@@ -55,13 +57,16 @@ public class RegisterActivity extends AppCompatActivity {
         etLocation = findViewById(R.id.etAreaLocation);
         etAddress3 = findViewById(R.id.etAddress3);
         btnRegister = findViewById(R.id.btnRegister);
+        tvRegisterError = findViewById(R.id.tvRegisterError);
 
         profilePic.setOnClickListener(i -> browseImage());
         btnRegister.setOnClickListener(i -> {
-                if (etPassword.getText().toString().equals(etRePassword.getText().toString())) {
+                if (etPassword.getText().toString().equalsIgnoreCase(etRePassword.getText().toString())) {
                     if (validate()) {
-                        saveImageOnly();
-                        signUp();
+                        if (imagePath != null) {
+                            saveImageOnly();
+                            signUp();
+                        }
                     }
                 } else {
                     Toast.makeText(RegisterActivity.this, "Password do not match", Toast.LENGTH_SHORT).show();
@@ -72,13 +77,21 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean validate() {
-        boolean status = true;
-        if (etMobilePhone.getText().toString().length() == 9 && etPhone.getText().toString().length() == 6) {
-            etPhone.setError("7 number required");
-            etMobilePhone.setError("10 number require");
-            status = false;
+        tvRegisterError.setError("");
+        if (etEmail.getText().toString().isEmpty() || etFullName.getText().toString().isEmpty()  ) {
+            tvRegisterError.setText("Please input all fields");
+            return false;
+        } else if (etMobilePhone.getText().toString().length() != 10  ) {
+            etMobilePhone.setError("10 numbers required");
+            return false;
+        } else if (etPhone.getText().toString().length() != 7) {
+            etPhone.setError("7 numbers required");
+            return false;
+        } else if (etPassword.getText().toString().length() < 8) {
+            etPassword.setError("8 characters required");
+            return false;
         }
-        return status;
+        return true;
     }
 
     private void browseImage() {

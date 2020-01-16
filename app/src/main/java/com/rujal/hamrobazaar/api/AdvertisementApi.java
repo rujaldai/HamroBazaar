@@ -2,8 +2,6 @@ package com.rujal.hamrobazaar.api;
 
 import com.rujal.hamrobazaar.Advertisement;
 import com.rujal.hamrobazaar.model.AdvertisementResponse;
-import com.rujal.hamrobazaar.model.SignUpResponse;
-import com.rujal.hamrobazaar.model.User;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

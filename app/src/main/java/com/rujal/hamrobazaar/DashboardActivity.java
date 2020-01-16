@@ -3,7 +3,6 @@ package com.rujal.hamrobazaar;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.EditText;
@@ -25,7 +24,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -145,6 +143,9 @@ public class DashboardActivity extends AppCompatActivity {
 
     public void setProfilePicture(String path) {
         File imgFile = new File(path);
+
+        System.out.println(imgFile.canRead());
+        System.out.println(imgFile.getAbsolutePath());
 
         if (imgFile.exists()) {
 
